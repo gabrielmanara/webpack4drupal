@@ -1,0 +1,19 @@
+{
+  "name": "webpack-for-drupal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p"
+  },
+  "author": "gmanara",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.1.1"
+  },
+  "dependencies": {
+    "glob": "^7.1.2",
+    "webpack-cli": "^2.0.12"
+  }
+}
