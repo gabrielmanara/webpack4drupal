@@ -1,0 +1,204 @@
+{
+  "context": "/home/CIT/fabriciob/www/webpack4drupal",
+  "entry": {
+    "layout": "./src/index.js",
+    "rep_log": "./src/index.js",
+    "login": "./src/index.js"
+  },
+  "output": {
+    "path": "/",
+    "filename": "[name].[chunkhash:8].js",
+    "publicPath": "/",
+    "pathinfo": true
+  },
+  "module": {
+    "rules": [{
+      "test": {},
+      "exclude": {},
+      "use": [{
+        "loader": "babel-loader",
+        "options": {
+          "cacheDirectory": true,
+          "presets": [
+            ["env", {
+              "modules": false,
+              "targets": {
+                "browsers": "> 1%",
+                "uglify": true
+              },
+              "useBuiltIns": true
+            }]
+          ],
+          "plugins": []
+        }
+      }]
+    }, {
+      "test": {},
+      "use": [{
+        "loader": "/home/CIT/fabriciob/www/webpack4drupal/node_modules/extract-text-webpack-plugin/dist/loader.js",
+        "options": {
+          "omit": 1,
+          "remove": true
+        }
+      }, {
+        "loader": "style-loader?sourceMap"
+      }, {
+        "loader": "css-loader",
+        "options": {
+          "minimize": false,
+          "sourceMap": true,
+          "importLoaders": 0
+        }
+      }]
+    }, {
+      "test": {},
+      "loader": "file-loader",
+      "options": {
+        "name": "images/[name].[hash:8].[ext]",
+        "publicPath": "/"
+      }
+    }, {
+      "test": {},
+      "loader": "file-loader",
+      "options": {
+        "name": "fonts/[name].[hash:8].[ext]",
+        "publicPath": "/"
+      }
+    }, {
+      "test": {},
+      "use": [{
+        "loader": "/home/CIT/fabriciob/www/webpack4drupal/node_modules/extract-text-webpack-plugin/dist/loader.js",
+        "options": {
+          "omit": 1,
+          "remove": true
+        }
+      }, {
+        "loader": "style-loader?sourceMap"
+      }, {
+        "loader": "css-loader",
+        "options": {
+          "minimize": false,
+          "sourceMap": true,
+          "importLoaders": 0
+        }
+      }, {
+        "loader": "resolve-url-loader",
+        "options": {
+          "sourceMap": true
+        }
+      }, {
+        "loader": "sass-loader",
+        "options": {
+          "sourceMap": true
+        }
+      }]
+    }]
+  },
+  "plugins": [{
+    "filename": "[name].[contenthash:8].css",
+    "id": 1,
+    "options": {
+      "allChunks": false
+    }
+  }, {
+    "entriesToDelete": []
+  }, {
+    "opts": {
+      "basePath": "",
+      "publicPath": "/",
+      "fileName": "manifest.json",
+      "stripSrc": null,
+      "transformExtensions": {},
+      "writeToFileEmit": true,
+      "cache": null
+    }
+  }, {
+    "options": {
+      "debug": true,
+      "options": {
+        "context": "/home/CIT/fabriciob/www/webpack4drupal",
+        "output": {
+          "path": "/"
+        }
+      },
+      "test": {}
+    }
+  }, {
+    "options": {}
+  }, {
+    "algorithm": "md5",
+    "digest": "hex"
+  }, {
+    "definitions": {
+      "$": "jquery",
+      "jQuery": "jquery",
+      "window.jQuery": "jquery"
+    }
+  }, {
+    "paths": ["**/*"],
+    "options": {
+      "root": "/",
+      "verbose": false,
+      "allowExternal": false,
+      "dry": false
+    }
+  }, {
+    "chunkNames": ["layout", "manifest"],
+    "minChunks": null,
+    "ident": "/home/CIT/fabriciob/www/webpack4drupal/node_modules/@symfony/webpack-encore/node_modules/webpack/lib/optimize/CommonsChunkPlugin.js0"
+  }, {
+    "definitions": {
+      "process.env": {
+        "NODE_ENV": "\"development\""
+      }
+    }
+  }, {
+    "options": {
+      "title": "Webpack Encore"
+    },
+    "lastBuildSucceeded": false,
+    "isFirstBuild": true
+  }, {
+    "compilationSuccessInfo": {
+      "messages": []
+    },
+    "shouldClearConsole": false,
+    "formatters": [null, null, null, null, null, null],
+    "transformers": [null, null, null, null, null, null]
+  }, {
+    "outputPath": "/",
+    "friendlyErrorsPlugin": {
+      "compilationSuccessInfo": {
+        "messages": []
+      },
+      "shouldClearConsole": false,
+      "formatters": [null, null, null, null, null, null],
+      "transformers": [null, null, null, null, null, null]
+    }
+  }],
+  "devtool": "inline-source-map",
+  "performance": {
+    "hints": false
+  },
+  "stats": {
+    "hash": false,
+    "version": false,
+    "timings": false,
+    "assets": false,
+    "chunks": false,
+    "maxModules": 0,
+    "modules": false,
+    "reasons": false,
+    "children": false,
+    "source": false,
+    "errors": false,
+    "errorDetails": false,
+    "warnings": false,
+    "publicPath": false
+  },
+  "resolve": {
+    "extensions": [".js", ".jsx", ".vue", ".ts", ".tsx"],
+    "alias": {}
+  },
+  "externals": {}
+}
