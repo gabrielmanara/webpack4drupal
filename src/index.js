@@ -1,8 +1,7 @@
-import Vue from 'vue';
-// import Form from './vue/components/Hello.vue';
+import Collapse from '@libraries/collapse/src/collapse';
+import Contact from '@features/contact/src/index';
 
-// new Vue({
-//     el: '#app',
-// });
+// import $ from 'jquery';
 
-import Collapse from './../libraries/collapse/src/collapse';
+
+console.log($('.app').html('ola'));
