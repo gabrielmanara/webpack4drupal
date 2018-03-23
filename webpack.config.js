@@ -27,11 +27,11 @@ glob
 
 
 libraries.forEach(library => {
-    entry[library] = [`./libraries/${library}/src/index.js`]
+    entry[`./libraries/${library}`] = [`./libraries/${library}/src/index.js`]
 });
 
 features.forEach(features => {
-    entry[features] = [`./features/${features}/src/index.js`]
+    entry[`./features/${features}`] = [`./features/${features}/src/index.js`]
 });
 
 let plugins = [];
@@ -39,9 +39,9 @@ let plugins = [];
 plugins.push(new FriendlyErrorsWebpackPlugin());
 //plugins.push(new BundleAnalyzerPlugin());
 plugins.push(new CleanWebpackPlugin(['dist']));
-plugins.push(new webpack.NamedModulesPlugin());
-plugins.push(new webpack.HotModuleReplacementPlugin());
-// plugins.push(new webpack.SourceMapDevToolPlugin());
+//plugins.push(new webpack.NamedModulesPlugin());
+//plugins.push(new webpack.HotModuleReplacementPlugin());
+//plugins.push(new webpack.SourceMapDevToolPlugin());
 // plugins.push(new webpack.optimize.AggressiveSplittingPlugin({
 //     minSize: 10000,
 //     maxSize: 30000,
@@ -60,7 +60,7 @@ module.exports = {
         contentBase: './',
         hot: true
     },
-    // devtool: 'cheap-module-eval-source-map',
+    //devtool: 'cheap-module-eval-source-map',
     mode: 'development',
     externals: {
         jquery: 'jQuery'
