@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
 var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const glob = require("glob");
 const libraries = [];
@@ -25,17 +27,25 @@ glob
 
 
 libraries.forEach(library => {
-    entry[`./libraries/${library}`] = [`./libraries/${library}/src/index.js`]
+    entry[library] = [`./libraries/${library}/src/index.js`]
 });
 
 features.forEach(features => {
-    entry[`./features/${features}`] = [`./features/${features}/src/index.js`]
+    entry[features] = [`./features/${features}/src/index.js`]
 });
 
 let plugins = [];
 
 plugins.push(new FriendlyErrorsWebpackPlugin());
-
+//plugins.push(new BundleAnalyzerPlugin());
+plugins.push(new CleanWebpackPlugin(['dist']));
+plugins.push(new webpack.NamedModulesPlugin());
+plugins.push(new webpack.HotModuleReplacementPlugin());
+// plugins.push(new webpack.SourceMapDevToolPlugin());
+// plugins.push(new webpack.optimize.AggressiveSplittingPlugin({
+//     minSize: 10000,
+//     maxSize: 30000,
+// }));
 
 module.exports = {
     context: path.resolve(__dirname),
@@ -46,9 +56,25 @@ module.exports = {
         publicPath: '/dist/',
         pathinfo: true // use false to production
     },
+    devServer: {
+        contentBase: './',
+        hot: true
+    },
+    // devtool: 'cheap-module-eval-source-map',
     mode: 'development',
     externals: {
         jquery: 'jQuery'
+    },
+    optimization: {
+        splitChunks: {
+          cacheGroups: {
+            commons: {
+              test: /[\\/]node_modules[\\/]/,
+              name: "vendor",
+              chunks: "initial",
+            },
+          },
+        },
     },
     resolve: {
         extensions: ['.js', '.jsx', '.vue', '.ts', '.tsx', '.json'],
