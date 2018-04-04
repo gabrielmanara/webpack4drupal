@@ -1,11 +1,18 @@
-import Vue from "vue";
+// import Vue from "vue";
+// import App from './vue/components/Hello.vue'
 import Collapse from '@libraries/collapse/src/collapse';
 import Contact from '@features/contact/src/index';
+// import { last } from 'lodash';
 
-// import $ from 'jquery';
+// console.log(last([1, 2, 3]));
 
+// // import $ from 'jquery';
 
-console.log($('.app').html('ola oi oi oi a oi'));
+// new Vue({
+//     el: '#app',
+//     render: h => h(App)
+// })
+// console.log($('#app').html('ola oi oi oi a oi'));
 
 // A ideia eh criar um arquivo com alguns exemplos de es6, que o babel suporta transpilar para es5.
 

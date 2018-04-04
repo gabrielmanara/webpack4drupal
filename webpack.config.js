@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+//var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -37,6 +38,8 @@ features.forEach(features => {
 let plugins = [];
 
 plugins.push(new FriendlyErrorsWebpackPlugin());
+//plugins.push(new LodashModuleReplacementPlugin());
+
 //plugins.push(new BundleAnalyzerPlugin());
 plugins.push(new CleanWebpackPlugin(['dist']));
 //plugins.push(new webpack.NamedModulesPlugin());
@@ -60,7 +63,7 @@ module.exports = {
         contentBase: './',
         hot: true
     },
-    //devtool: 'cheap-module-eval-source-map',
+    devtool: 'cheap-module-eval-source-map',
     mode: 'development',
     externals: {
         jquery: 'jQuery'
@@ -89,12 +92,17 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.vue$/,
+                exclude: /node_modules/,
+                loader: 'vue-loader',
+            },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use : {
                     loader: 'babel-loader',
                     options: {
-                        cacheDirectory: true
+                        cacheDirectory: false
                     }
                 }
             }
