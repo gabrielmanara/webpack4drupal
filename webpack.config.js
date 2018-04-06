@@ -43,7 +43,7 @@ plugins.push(new FriendlyErrorsWebpackPlugin());
 //plugins.push(new BundleAnalyzerPlugin());
 plugins.push(new CleanWebpackPlugin(['dist']));
 //plugins.push(new webpack.NamedModulesPlugin());
-//plugins.push(new webpack.HotModuleReplacementPlugin());
+plugins.push(new webpack.HotModuleReplacementPlugin());
 //plugins.push(new webpack.SourceMapDevToolPlugin());
 // plugins.push(new webpack.optimize.AggressiveSplittingPlugin({
 //     minSize: 10000,
@@ -61,24 +61,25 @@ module.exports = {
     },
     devServer: {
         contentBase: './',
-        hot: true
+        hot: true,
+        inline: true
     },
     devtool: 'cheap-module-eval-source-map',
     mode: 'development',
     externals: {
         jquery: 'jQuery'
     },
-    optimization: {
-        splitChunks: {
-          cacheGroups: {
-            commons: {
-              test: /[\\/]node_modules[\\/]/,
-              name: "vendor",
-              chunks: "initial",
-            },
-          },
-        },
-    },
+    // optimization: {
+    //     splitChunks: {
+    //       cacheGroups: {
+    //         commons: {
+    //           test: /[\\/]node_modules[\\/]/,
+    //           name: "vendor",
+    //           chunks: "initial",
+    //         },
+    //       },
+    //     },
+    // },
     resolve: {
         extensions: ['.js', '.jsx', '.vue', '.ts', '.tsx', '.json'],
         alias: {
@@ -86,7 +87,7 @@ module.exports = {
             '@components' : path.resolve(__dirname, 'src/vue/components'),
             '@features' : path.resolve(__dirname, 'features'),
             'vue$': 'vue/dist/vue.esm.js',
-            '@': path.resolve(__dirname, 'src'),
+            '@vue': path.resolve(__dirname, 'src', 'vue'),
         }
     },
     plugins,
