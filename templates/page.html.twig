@@ -1,7 +1,29 @@
 <div id="app" class="layout-container">
 
-    <h1>HEUHEUEUHUE</h1>
-    <message></message>
+    <header class="l-header" role="banner">
+        {{ page.header }}
+    </header>
+
+    <main class="l-main" role="main">
+        <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+        <div class="layout-content">
+            <div class="container">
+                <message></message>
+                {{ page.content }}
+            </div>
+        </div>{# /.layout-content #}
+
+    </main>
+
+    {% if page.footer %}
+        <footer class="l-footer" role="contentinfo">
+            <div class="container">
+                {{ page.footer }}
+            </div>
+        </footer>
+    {% endif %}
+
 </div>{# /.layout-container #}
 
 

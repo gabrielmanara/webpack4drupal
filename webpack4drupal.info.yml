@@ -8,8 +8,7 @@ libraries:
 regions:
   header: 'Header'
   content: 'Content'
-  footer_top: 'Footer Top'
-  footer_bottom: 'Footer Bottom'
+  footer: 'Footer'
 base theme: classy
 libraries-override:
   classy/base: false
