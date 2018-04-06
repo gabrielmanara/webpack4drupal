@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 // import Vue from "vue";
 // import App from './vue/components/Hello.vue'
 // import { last } from 'lodash';
