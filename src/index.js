@@ -1,7 +1,6 @@
+import 'babel-polyfill';
 // import Vue from "vue";
 // import App from './vue/components/Hello.vue'
-import Collapse from '@libraries/collapse/src/collapse';
-import Contact from '@features/contact/src/index';
 // import { last } from 'lodash';
 
 // console.log(last([1, 2, 3]));

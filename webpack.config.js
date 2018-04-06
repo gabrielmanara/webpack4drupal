@@ -7,7 +7,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 const glob = require("glob");
 const libraries = [];
-const features = [];
+const pages = [];
 const entry = {
     app: './src/index.js',
 };
@@ -20,10 +20,10 @@ glob
 });
 
 glob
-.sync('features/*')
+.sync('src/vue/pages/*')
 .forEach(function (file) {
     var module = path.basename(file, path.extname(file))
-    features.push(module)
+    pages.push(module)
 });
 
 
@@ -31,8 +31,8 @@ libraries.forEach(library => {
     entry[`./libraries/${library}`] = [`./libraries/${library}/src/index.js`]
 });
 
-features.forEach(features => {
-    entry[`./features/${features}`] = [`./features/${features}/src/index.js`]
+pages.forEach(page => {
+    entry[`./pages/${page}`] = [`./src/vue/pages/${page}/index.js`]
 });
 
 let plugins = [];
@@ -83,6 +83,7 @@ module.exports = {
         extensions: ['.js', '.jsx', '.vue', '.ts', '.tsx', '.json'],
         alias: {
             '@libraries' : path.resolve(__dirname, 'libraries'),
+            '@components' : path.resolve(__dirname, 'src/vue/components'),
             '@features' : path.resolve(__dirname, 'features'),
             'vue$': 'vue/dist/vue.esm.js',
             '@': path.resolve(__dirname, 'src'),

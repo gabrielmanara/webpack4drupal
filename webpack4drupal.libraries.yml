@@ -1,0 +1,8 @@
+global:
+  js:
+    dist/vendor-bundle.js: { scope: footer }
+    dist/app-bundle.js: { scope: footer }
+home:
+  js:
+    dist/pages/home-bundle.js: { scope: footer }
+    dist/pages/home-bundle.js: { scope: footer }
