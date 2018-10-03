@@ -28,15 +28,15 @@
     "friendly-errors-webpack-plugin": "^1.6.1",
     "glob": "^7.1.2",
     "lodash-webpack-plugin": "^0.11.4",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.9.3",
     "sass-loader": "^6.0.7",
     "vue-loader": "^14.2.2",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.2.0",
+    "webpack": "^4.20.2",
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-cli": "^2.0.12",
-    "webpack-dev-server": "^3.1.1",
+    "webpack-dev-server": "^3.1.9",
     "webpack-notifier": "^1.6.0"
   },
   "dependencies": {
